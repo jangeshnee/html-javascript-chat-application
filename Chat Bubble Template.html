@@ -1,0 +1,116 @@
+<html>
+<head>
+	<title>Chat Box</title>
+	<style>
+
+body{
+  font-size: 16px;
+  font-family: Arial ;
+}
+.conversation-header{
+  background: #ff6d3b;
+  color:#ffffff;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  width: 500px;
+}
+
+.conversation-body{
+  background: #efefef;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  overflow-x: scroll;
+  overflow-y: scroll; 
+  height: 60vh;
+  width: 500px;
+  font-family: Arial ;
+}
+
+.tutor-say{
+  background: #fff;
+  color: #000;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  margin-right: 50px;
+  text-align: justify;
+ }
+
+.user-reply{
+  background: #5bc0de;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  margin-left: 50px;
+
+}
+
+ul{
+  list-style-type: none;
+  padding: 0px;
+margin: 0px;
+}
+
+.message-box{
+height: 100px;
+width: 400px;
+padding: 10px;
+ margin: 10px;
+}
+.send-button{
+	height: 100px;
+	width: 100px;
+}
+	</style>
+
+
+
+	
+</head>
+<body>
+
+<script>
+
+function scrollChat(){
+	var objDiv = document.getElementById('chatdiv');
+	objDiv.scrollTop = objDiv.scrollHeight;
+}
+
+function addConvoReply(){
+var ourList = document.getElementById("chatlist");
+var message = document.getElementById("myMessage").value;
+ourList.innerHTML += "<li class='user-reply'>" + message +"</li>";
+scrollChat();    
+}
+
+function addTutorReply(message){
+var ourList = document.getElementById("chatlist");
+ourList.innerHTML += "<li class='tutor-say'>" + message +"</li>";
+scrollChat();
+}
+
+
+</script>
+
+	<div class="conversation-header">My Chat Box</div>
+	<div id="chatdiv" class="conversation-body">	
+						
+					 <ul id="chatlist">
+					 	<li class="tutor-say">Hi! Welcome to chat box.</li>
+					 	<li></li>	
+					</ul>
+
+	</div>
+
+	<div>
+<input type="text" placeholder="Say something" id="myMessage" class="message-box">
+<button id="our-button" onclick="addConvoReply()" class="send-button">Send</button>
+	</div>
+
+</body>
+</html>
