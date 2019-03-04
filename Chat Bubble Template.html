@@ -85,7 +85,8 @@ function addConvoReply(){
 var ourList = document.getElementById("chatlist");
 var message = document.getElementById("myMessage").value;
 ourList.innerHTML += "<li class='user-reply'>" + message +"</li>";
-scrollChat();    
+scrollChat();
+document.getElementById("myMessage").value = '';    
 }
 
 function addTutorReply(message){
